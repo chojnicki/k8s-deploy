@@ -32,6 +32,7 @@ export function updateManifestFiles(manifestFilePaths: string[]) {
       manifestFilePaths,
       containers
    )
+   core.debug(`Updated manifest files: ${manifestFiles}`)
 
    // update pull secrets
    const imagePullSecrets: string[] = core
@@ -72,6 +73,9 @@ function updateContainerImagesInManifestFiles(
 
    const newFilePaths = []
 
+   core.debug(`Container images: ${containers}`)
+   core.debug(`Updating container images in manifest files: ${filePaths}`)
+
    // update container images
    filePaths.forEach((filePath: string) => {
       let contents = fs.readFileSync(filePath).toString()
@@ -96,6 +100,8 @@ function updateContainerImagesInManifestFiles(
       fs.writeFileSync(path.join(fileName), contents)
       newFilePaths.push(fileName)
    })
+
+   core.debug(`Updated manifest files: ${newFilePaths}`)
 
    return newFilePaths
 }
