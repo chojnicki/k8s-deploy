@@ -21,13 +21,13 @@ export async function deploy(
 ) {
    // update manifests
    core.startGroup('Deploying manifests2')
-   core.debug(`files to deploy: ${manifestFilePaths.join(', ')}`)
+   core.startGroup(`files to deploy: ${manifestFilePaths.join(', ')}`)
    const inputManifestFiles: string[] = updateManifestFiles(manifestFilePaths)
    core.debug(`Input manifest files: ${inputManifestFiles}`)
 
    // deploy manifests
    core.startGroup('Deploying manifests')
-   core.debug(`files to deploy: ${manifestFilePaths.join(', ')}`)
+   core.startGroup(`files to deploy: ${manifestFilePaths.join(', ')}`)
    const trafficSplitMethod = parseTrafficSplitMethod(
       core.getInput('traffic-split-method', {required: true})
    )
