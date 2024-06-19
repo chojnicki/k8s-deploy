@@ -21,6 +21,7 @@ export async function deploy(
 ) {
    // update manifests
    core.startGroup('Deploying manifests2')
+   core.debug(`files to deploy: ${manifestFilePaths.join(', ')}`)
    const inputManifestFiles: string[] = updateManifestFiles(manifestFilePaths)
    core.debug(`Input manifest files: ${inputManifestFiles}`)
 
