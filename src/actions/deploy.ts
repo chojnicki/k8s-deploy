@@ -27,6 +27,7 @@ export async function deploy(
 
    // deploy manifests
    core.startGroup('Deploying manifests')
+   core.debug(`files to deploy: ${manifestFilePaths.join(', ')}`)
    const trafficSplitMethod = parseTrafficSplitMethod(
       core.getInput('traffic-split-method', {required: true})
    )
