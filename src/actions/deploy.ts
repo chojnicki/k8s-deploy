@@ -20,6 +20,7 @@ export async function deploy(
    deploymentStrategy: DeploymentStrategy
 ) {
    // update manifests
+   core.startGroup('Deploying manifests2')
    const inputManifestFiles: string[] = updateManifestFiles(manifestFilePaths)
    core.debug(`Input manifest files: ${inputManifestFiles}`)
 
