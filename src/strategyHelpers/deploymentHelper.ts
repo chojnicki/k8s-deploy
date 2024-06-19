@@ -48,6 +48,7 @@ export async function deployManifests(
    kubectl: Kubectl,
    trafficSplitMethod: TrafficSplitMethod
 ): Promise<string[]> {
+   core.debug(`files to deploy: ${files.join(', ')}`)
    switch (deploymentStrategy) {
       case DeploymentStrategy.CANARY: {
          const canaryDeployResult: DeployResult =
